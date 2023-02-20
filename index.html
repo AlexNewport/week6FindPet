@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>Please enter the minimum age for the dog:
+        <input type="text" id="minAge" maxlength="2" size="1"></input>
+        <button onclick="showDogs()">Show dogs available for adoption</button>
+    </label>
+    <p id="selectedDogsText"></p>
+<script>
+const allDogs = [
+    {
+
+        dogName: "Aphrodite",
+
+        breed: "Terrier, American Pit Bull/German Shepherd",
+
+        age: 2
+
+    },
+    {
+
+        dogName: "Aunt Mille",
+
+        breed: "Terrier, Staffordshire Bull/Mix",
+
+        age: 6
+
+    },
+    {
+
+        dogName: "Avocado",
+
+        breed: "Terrier, American Staffordshire/Retriever, Labrador",
+
+        age: 2
+
+    },
+    {
+
+        dogName: "Barkley",
+
+        breed: "Retriever/Mix",
+
+        age: 4
+
+    },
+    {
+
+        dogName: "Benji",
+
+        breed: "Retriever, Labrador/Chow Chow",
+
+        age: 6
+
+    },
+    {
+
+        dogName: "Big Tina",
+
+        breed: "Retriever, Labrador/Mix",
+
+        age: 10
+
+    },
+    {
+
+        dogName: "Bosko",
+
+        breed: "Terrier, American Pit Bull/Mix",
+
+        age: 1
+
+    },
+    {
+
+        dogName: "Brutus",
+
+        breed: "Terrier, American Pit Bull/Mix",
+
+        age: 1
+
+    },
+    {
+
+        dogName: "Buddy Bruster",
+
+        breed: "Shepherd/Mix",
+
+        age: 2
+
+    }
+]
+
+const showDogs = () => {
+    minAge = parseInt(document.querySelector("#minAge").value);
+    selectedDogs = [];
+
+  allDogs.forEach(dog => {
+    if (dog.age >= minAge) {
+        selectedDogs.unshift(dog);
+    }
+  })
+
+  selectedDogsElement = document.querySelector("#selectedDogsText");
+  selectedDogsElement.innerHTML = `Your search resulted in ${selectedDogs.length} available dogs. `;
+
+  selectedDogs.forEach(selectedDog => {
+    selectedDogsElement.innerHTML += `${selectedDog.dogName} is a ${selectedDog.age} year old ${selectedDog.breed} available for adoption. `;
+  })
+}
+</script>
+</body>
+</html>
